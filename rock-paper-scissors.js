@@ -56,7 +56,7 @@ function computerPlay() {
         }
     }
 
-    game()
+    // game()
 
     
     // console.log(singleRound(playerSelection.toLowerCase(), computerSelection));

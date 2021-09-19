@@ -4,9 +4,34 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
+}
+
+h1, h2 {
+    font-family: 'Gluten', cursive;
+}
+
+p {
+    font-family: 'Gluten', cursive;
+    font-size: x-large;
 }
 
 .container {
     display: flex;
     gap: 8px;
+    justify-content: center;
+}
+
+.btn {
+    background-color: #FFEDD3;
+    border: 2px solid;
+    border-radius: 5px;
+    font-size: 30px;
+    padding: 5px;
+    font-family: 'Gluten', cursive;
+}
+
+button:hover {
+    border-color: #EC9CD3;
+    color: #EC9CD3;
 }

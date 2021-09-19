@@ -7,7 +7,6 @@ function computerPlay() {
 
     let computerScore = 0;
     let playerScore = 0;
-    // playerSelection = prompt('choose your element', '');
     // computerSelection = computerPlay();
 
     function singleRound(playerSelection, computerSelection) {
@@ -42,22 +41,29 @@ function computerPlay() {
         }
     }
     
-    function game() {
-        while (computerScore<5 && playerScore < 5) {
-            console.log(singleRound(prompt('choose your element', '').toLowerCase(), computerPlay()));
-            console.log('Computer score is ' + computerScore)
-            console.log('player score is ' + playerScore)
-        }
-        
-        if (computerScore === 5) {
-            console.log('Computer win!');
-        } else if (playerScore === 5) {
-            console.log('Player win');
-        }
+    function gameRock() {
+        console.log(singleRound('rock', computerPlay()));
+        console.log('Computer score is ' + computerScore)
+        console.log('player score is ' + playerScore)    
     }
 
-    // game()
+    function gamePaper() {
+        console.log(singleRound('paper', computerPlay()));
+        console.log('Computer score is ' + computerScore)
+        console.log('player score is ' + playerScore)    
+    }
+    
+    function gameScissors() {
+        console.log(singleRound('scissors', computerPlay()));
+        console.log('Computer score is ' + computerScore)
+        console.log('player score is ' + playerScore)    
+    }
+    
+    const rockButton = document.querySelector('#rock');
+    rockButton.addEventListener('click', gameRock);
 
-    
-    // console.log(singleRound(playerSelection.toLowerCase(), computerSelection));
-    
+    const paperButton = document.querySelector('#paper');
+    paperButton.addEventListener('click', gamePaper);
+
+    const scissorsButton = document.querySelector('#scissors');
+    scissorsButton.addEventListener('click', gameScissors);

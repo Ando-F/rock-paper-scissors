@@ -61,7 +61,14 @@ function computerPlay() {
 
     // Making rock button
     function gameRock() {
-        console.log(singleRound('rock', computerPlay()))
+        let rockRound = singleRound('rock', computerPlay());
+        const messagePlace = document.querySelector('h2');
+
+        if (playerScore < 5 && computerScore < 5) {
+            messagePlace.innerHTML = rockRound;
+        } else {
+            messagePlace.innerHTML = "";
+        }
     }
 
     const rockButton = document.querySelector('#rock');
@@ -70,7 +77,14 @@ function computerPlay() {
 
     // Making paper button
     function gamePaper() {
-        console.log(singleRound('paper', computerPlay()));  
+        let paperRound = singleRound('paper', computerPlay());
+        const messagePlace = document.querySelector('h2');
+        
+        if (playerScore < 5 && computerScore < 5) {
+            messagePlace.innerHTML = paperRound;  
+        } else {
+            messagePlace.innerHTML = "";
+        }
     }
 
     const paperButton = document.querySelector('#paper');
@@ -79,7 +93,14 @@ function computerPlay() {
     
     // Making scissors button
     function gameScissors() {
-        console.log(singleRound('scissors', computerPlay()));    
+        let scissorsRound = singleRound('scissors', computerPlay()); 
+        const messagePlace = document.querySelector('h2');
+        
+        if (playerScore < 5 && computerScore < 5) {
+            messagePlace.innerHTML = scissorsRound;
+        } else {
+            messagePlace.innerHTML = "";
+        }
     }
 
     const scissorsButton = document.querySelector('#scissors');

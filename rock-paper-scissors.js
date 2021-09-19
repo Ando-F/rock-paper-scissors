@@ -7,7 +7,6 @@ function computerPlay() {
 
     let computerScore = 0;
     let playerScore = 0;
-    // computerSelection = computerPlay();
 
     function singleRound(playerSelection, computerSelection) {
         if (playerSelection === 'rock' && computerSelection === 'paper') {
@@ -41,29 +40,48 @@ function computerPlay() {
         }
     }
     
-    function gameRock() {
-        console.log(singleRound('rock', computerPlay()));
-        console.log('Computer score is ' + computerScore)
-        console.log('player score is ' + playerScore)    
+    // Result logging
+    function keepScore() {
+        const resultPlace = document.querySelector('p');
+        let computerScoreText = 'Computer score is ' + computerScore;
+        let playerScoreText = 'Player score is ' + playerScore;
+        let score = computerScoreText + " " + playerScoreText;
+        
+        let playerWin = "Player Wins!";
+        let computerWin = "Computer Wins!";
+
+        if (playerScore < 5 && computerScore < 5) {
+            resultPlace.innerHTML = score;
+        } else if (playerScore == 5) {
+            resultPlace.innerHTML = playerWin;
+        } else if (computerScore == 5) {
+            resultPlace.innerHTML = computerWin;
+        }
     }
 
-    function gamePaper() {
-        console.log(singleRound('paper', computerPlay()));
-        console.log('Computer score is ' + computerScore)
-        console.log('player score is ' + playerScore)    
+    // Making rock button
+    function gameRock() {
+        console.log(singleRound('rock', computerPlay()))
     }
-    
-    function gameScissors() {
-        console.log(singleRound('scissors', computerPlay()));
-        console.log('Computer score is ' + computerScore)
-        console.log('player score is ' + playerScore)    
-    }
-    
+
     const rockButton = document.querySelector('#rock');
     rockButton.addEventListener('click', gameRock);
+    rockButton.addEventListener('click', keepScore);
+
+    // Making paper button
+    function gamePaper() {
+        console.log(singleRound('paper', computerPlay()));  
+    }
 
     const paperButton = document.querySelector('#paper');
     paperButton.addEventListener('click', gamePaper);
+    paperButton.addEventListener('click', keepScore)
+    
+    // Making scissors button
+    function gameScissors() {
+        console.log(singleRound('scissors', computerPlay()));    
+    }
 
     const scissorsButton = document.querySelector('#scissors');
     scissorsButton.addEventListener('click', gameScissors);
+    scissorsButton.addEventListener('click', keepScore)
